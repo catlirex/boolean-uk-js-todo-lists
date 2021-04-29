@@ -4,20 +4,19 @@
 let yourId = null
 let yourPosition = null
 
-for(let action = 0; action != 10;){
+for(let action = 0; action != 9;){
 
     if (action === 0) chooseUser();
 
     action = parseInt(prompt(`
     Welcome ${users[yourId].name}!
-
     Choose action (Enter the number):
     0: Switch user
     1: Show uncompleted to-do-list
     2: Add new todo
     3: Delete todo item
     4: Update todo item
-    10: Exit`))
+    9: Exit`))
 
     if(action === 1) viewTodo();
     if(action === 2) addTodo();
@@ -32,10 +31,10 @@ function chooseUser(){
     let output = []
     for (let i = 0; i < users.length; i++){
         output.push(`
-        ID: ${users[i].id}, User: ${users[i].name}, City: ${users[i].address.city} `)
+        User ${users[i].id} /  ${users[i].name} / from: ${users[i].address.city}`)
     }
 
-    alert(output)
+    alert(output.join("\n"))
 
 // - Prompt the user for a user id
 
