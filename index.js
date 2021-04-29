@@ -4,24 +4,25 @@
 let yourId = null
 let yourPosition = null
 
-for(let action = 0; action != 9;){
+for(let action = 0; action != 5;){
 
     if (action === 0) chooseUser();
 
     action = parseInt(prompt(`
-    Welcome ${users[yourId].name}!
+    Welcome ${users[yourPosition].name}!
     Choose action (Enter the number):
     0: Switch user
     1: Show uncompleted to-do-list
     2: Add new todo
     3: Delete todo item
     4: Update todo item
-    9: Exit`))
+    5: Exit`))
 
     if(action === 1) viewTodo();
-    if(action === 2) addTodo();
-    if(action === 3) delTodo();
-    if(action === 4) updateTodo();
+    else if(action === 2) addTodo();
+    else if(action === 3) delTodo();
+    else if(action === 4) updateTodo();
+    else if (action > 5) alert("Input incorrect, please re-enter.")
 }
 
 
@@ -41,9 +42,14 @@ function chooseUser(){
     yourId = parseInt(prompt("Please enter your user ID"))
 
     for (let i = 0; i < users.length; i++){
-        if (users[i].id === yourId){
-            yourPosition = i;}
+        if (users[i].id === yourId) yourPosition = i;
     }
+
+    if (yourPosition === null){
+        alert("ID incorrect, please re-enter.");
+        chooseUser();
+    }
+    
 }
 
 // Add new todo
