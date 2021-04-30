@@ -95,7 +95,7 @@ function delTodo(){
         if(todos[i].id === delId ) delPosition = i;
     }
 
-    if(todos[delPosition].userID === yourId){
+    if(todos[delPosition].userId === yourId){
     todos.splice(delPosition , 1);
     viewTodo();
     }
